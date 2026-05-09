@@ -16,7 +16,11 @@
       ];
 
       perSystem = { pkgs, self', ... }: {
-        packages.default = ( pkgs.callPackage ./qylock-sddm.nix {  } );
+        packages.default = ( pkgs.callPackage ./qylock-sddm.nix { } );
+        packages.qylock-lock = ( pkgs.callPackage ./qylock-lock.nix {
+          qylock-theme = self'.packages.default;
+        });
+
         packages.test = self'.packages.default.override {
           lockscreenTheme = "star-rail";
           sddmFont = ./zhcn.ttf;

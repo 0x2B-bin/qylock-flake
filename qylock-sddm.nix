@@ -19,13 +19,12 @@ stdenvNoCC.mkDerivation ( finalAttrs: {
 
     cp -r ./themes/${sddmTheme} $out/share/sddm/themes
     cp -r ./Assets $out/share/sddm/themes/${sddmTheme}
+    cp -r ./quickshell-lockscreen/* $out/share/quickshell/qylock
 
     ${if sddmTheme != lockscreenTheme then ''
       cp -r ./themes/${lockscreenTheme} $out/share/sddm/themes
       cp -r ./Assets $out/share/sddm/themes/${lockscreenTheme}
     '' else ""}
-
-    cp -r ./quickshell-lockscreen/* $out/share/quickshell/qylock
 
     ${if sddmFont != null then ''
       mkdir -p $out/share/sddm/themes/${sddmTheme}/font
@@ -38,4 +37,8 @@ stdenvNoCC.mkDerivation ( finalAttrs: {
     '' else ""}
 
   '';
+
+  passthru = {
+    inherit lockscreenTheme;
+  };
 })
