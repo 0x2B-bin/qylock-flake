@@ -50,6 +50,16 @@
         enable = true;
         wayland.enable = true;
         theme = cfg.sddm-theme;
+        extraPackages = with pkgs; [
+          quickshell
+          qt6.qtdeclarative
+          qt6.qtmultimedia
+          qt6.qtmultimedia
+          qt6.qtsvg
+          qt6.qt5compat
+          gst_all_1.gst-plugins-base
+          gst_all_1.gst-plugins-good
+        ];
       };
 
       environment.systemPackages = [
