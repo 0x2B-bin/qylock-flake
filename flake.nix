@@ -15,6 +15,8 @@
         "x86_64-linux"
       ];
 
+      imports = [ ./module.nix ];
+
       perSystem = { pkgs, self', ... }: {
         packages.default = ( pkgs.callPackage ./qylock-sddm.nix { } );
         packages.qylock-lock = ( pkgs.callPackage ./qylock-lock.nix {
