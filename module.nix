@@ -14,7 +14,7 @@
       };
 
       sddm-font = lib.mkOption {
-        type = lib.types.path;
+        type = lib.types.nullOr lib.types.path;
         description = "Font for SDDM theme";
         default = null;
       };
@@ -26,7 +26,7 @@
       };
 
       lock-font = lib.mkOption {
-        type = lib.types.path;
+        type = lib.types.nullOr lib.types.path;
         description = "Font for lockscreen";
         default = null;
       };
