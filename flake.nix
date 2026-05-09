@@ -24,7 +24,7 @@
         });
 
         packages.test = self'.packages.default.override {
-          lockscreenTheme = "star-rail";
+          lockscreenTheme = "nier-automata";
           sddmFont = ./zhcn.ttf;
           lockscreenFont = ./zhcn.ttf;
         };

@@ -6,7 +6,7 @@
   lockscreenFont ? null,
 }:
 stdenvNoCC.mkDerivation ( finalAttrs: {
-  name = "qylock";
+  name = "qylock-sddm-theme";
 
   src = fetchGit {
     url = "https://github.com/Darkkal44/qylock.git";
@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation ( finalAttrs: {
   };
 
   installPhase = ''
-    mkdir -p $out/share/sddm/themes/${sddmTheme}/font
+    mkdir -p $out/share/sddm/themes/
     mkdir -p $out/share/quickshell/qylock
 
     cp -r ./themes/${sddmTheme} $out/share/sddm/themes
@@ -31,7 +31,7 @@ stdenvNoCC.mkDerivation ( finalAttrs: {
       cp "${sddmFont}" $out/share/sddm/themes/${sddmTheme}/font/
     '' else ""}
 
-    ${if lockscreenFont != null then ''
+    ${if lockscreenFont != null && lockscreenFont != sddmFont then ''
       mkdir -p $out/share/sddm/themes/${lockscreenTheme}/font
       cp "${lockscreenFont}" $out/share/sddm/themes/${lockscreenTheme}/font/
     '' else ""}
