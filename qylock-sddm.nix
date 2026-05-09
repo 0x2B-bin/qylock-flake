@@ -28,12 +28,12 @@ stdenvNoCC.mkDerivation ( finalAttrs: {
 
     ${if sddmFont != null then ''
       mkdir -p $out/share/sddm/themes/${sddmTheme}/font
-      cp "${sddmFont}" $out/share/sddm/themes/${sddmTheme}/font
+      cp "${sddmFont}" $out/share/sddm/themes/${sddmTheme}/font/
     '' else ""}
 
     ${if lockscreenFont != null then ''
       mkdir -p $out/share/sddm/themes/${lockscreenTheme}/font
-      cp "${lockscreenFont}" $out/share/sddm/themes/${lockscreenTheme}/font
+      cp "${lockscreenFont}" $out/share/sddm/themes/${lockscreenTheme}/font/
     '' else ""}
 
   '';
