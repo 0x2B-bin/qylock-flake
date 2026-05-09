@@ -1,5 +1,6 @@
+{ self, ... }:
 {
-  flake.nixosModules.qylock = { config, lib, self', ... }:
+  flake.nixosModules.qylock = { config, lib, ... }:
   let
     cfg = config.programs.qylock;
   in
@@ -33,14 +34,14 @@
 
     config = lib.mkIf cfg.enable (
     let
-      qylock-sddm = self'.packages.default.override {
+      qylock-sddm = self.packages.default.override {
         sddmTheme = cfg.sddm-theme;
         sddmFont = cfg.sddm-font;
         lockscreenTheme = cfg.lock-theme;
         lockscreenFont = cfg.lock-font;
       };
 
-      qylock-lock = self'.packages.default.qylock-lock.override {
+      qylock-lock = self.packages.default.qylock-lock.override {
         qylock-theme = qylock-sddm;
       };
     in
