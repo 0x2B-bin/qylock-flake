@@ -41,7 +41,7 @@
         lockscreenFont = cfg.lock-font;
       };
 
-      qylock-lock = self.packages.${pkgs.stdenv.hostPlatform.system}.default.qylock-lock.override {
+      qylock-lock = self.packages.${pkgs.stdenv.hostPlatform.system}.qylock-lock.override {
         qylock-theme = qylock-sddm;
       };
     in
