@@ -22,12 +22,6 @@
         packages.qylock-lock = ( pkgs.callPackage ./qylock-lock.nix {
           qylock-theme = self'.packages.default;
         });
-
-        packages.test = self'.packages.default.override {
-          lockscreenTheme = "nier-automata";
-          sddmFont = ./zhcn.ttf;
-          lockscreenFont = ./zhcn.ttf;
-        };
       };
     };
 }
